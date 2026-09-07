@@ -15,7 +15,6 @@ Reinforcement learning is a branch of machine learning in which an agent learns 
 Traditional methods of tackling this tradeoff involve a simple probabilistic choice, using a parameter called epsilon, but this is an inneficient approach. Heuristics attempt to expedite and guide this decision making by providing a rough approximation of when to explore and when to exploit. Metaheuristics, in turn, are heuristics which are adaptable and typically not tailored to a specific problem. Some of these metaheuristics are inspired by the physical world. One of these is the Lichtenberg algorithm (LA), which is based on Lichtenberg figures, the fractal patterns often created when electricity discharges on a surface.
 
 
-**[place Lichtenberg figure image here]**
 ![An example of a Lichtenberg figure](eta5.dim1000.gif "An example Lichtenberg figure generated in this project using DBM (see below for methods)")
 
 
@@ -80,8 +79,6 @@ Contained in the file la.py, the Lichtenberg algorithm (LA) was implemented base
 
 Lichtenberg figures serve as good metaheuristics because of their ability to scan the search space efficiently. They spread out widely in a pattern with complexity at all levels. In the LA, scaled down LFs in some iterations allow the algorithm to exploit, while larger scaled LFs allow the function to explore, so as not to get stuck in local extrema. This process helps the LA to optimize objective functions in fewer iterations (Pereira et al., 2021, p. 6).
 
-[**Here include an image - probably best is a gif of LA sampling?**]
-
 In this project, we did not use the LA in isolation to optimize objective functions like the researchers did, but instead used it to partially optimize the action value function approximation in our modified deep deterministic policy gradient method, using LA to explore the search space in place of the typical "actor." For more, see the Agents section.
 
 ### Agents
@@ -98,8 +95,6 @@ The Agents folder contains most of the critical project files. Here is a brief e
 | test_agents.ipynb | the script used to test our Lichtenberg agent against the benchmark DDPG agent |
 
 The deep deterministic policy gradient (DDPG) has been described as a counterpart of deep Q-learning (DQL) for continuous action spaces as opposed to discrete ones (INSERT SOURCE HERE). DDPG adapts DQL by using function approximators for both the action-value function, often symbolized as Q, and the policy, instead of using tables as DQL does. [**Add stuff here about actor and critic**]
-
-[**HERE EXPLAIN HOW LFs FIT INTO DDPG**]
 
 ## Experimentation Methods
 As shown in the test_agents.ipynb file, we tested our LA-based agent against the benchmark DDPG agent, which is similar to the well-established method of deep Q-learning. Both agents were set to the same parameters (shown in the table directly below) and underwent 30 full training runs for each of the environments until convergence. The number of episodes and the time taken to converge were recorded. The data for the submarine environment are shown in the results section below.
@@ -151,8 +146,6 @@ In summary, we found that, on average, the Lichtenberg agent was able to converg
 
 ## Conclusion and Discussion
 This study explored the application of the pre-existing Lichtenberg algorithm of Pereira et al. (2021) to the explore-exploit tradeoff in reinforcement learning environments with continuous action spaces. The LA was used as the explorer rather than the typical actor, a function approximator of the policy, in the deep deterministic policy gradient (DDPG) method. In trials in the submarine environment, the LA-modified agent was found to perform better on average than the benchmark DDPG agent with respect to the number of episodes of training needed to converge to a solution.
-
-[**ADD DISCUSSION**]
 
 ## References
 
